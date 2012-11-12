@@ -1,13 +1,14 @@
 #!/bin/bash
 #
-# Script to download my blacklists, process them, and reload my Transmission daemon
-# Based off blacklists available here http://www.iblocklist.com/lists.php 
+# Script to download my blacklists, process them, and reload my NAS's Transmission daemon.
+# Modify for your own environment. Based off blacklists available here http://www.iblocklist.com/lists.php 
 #
 
 mkdir /tmp/blocklists
 
 # Anti-Infringement (Paid) Blocklist
-wget "http://list.iblocklist.com/?list=srzondksmjuwsvmgdbhi&fileformat=p2p&archiveformat=gz&id=signalgod&pin=7133" --output-document=/tmp/blocklists/anti-infringement.bin.gz
+wget "http://url-with-login-and-pass-goes-here" --output-document=/tmp/blocklists/anti-infringement.bin.gz
+# WARNING: Sending login details in plaintext here
 gunzip /tmp/blocklists/anti-infringement.bin.gz
 mv /tmp/blocklists/anti-infringement.bin /raid/data/module/transmission/system/etc/blocklists
 
@@ -36,7 +37,7 @@ wget "http://list.iblocklist.com/?list=soe&fileformat=p2p&archiveformat=gz" --ou
 gunzip /tmp/blocklists/sony.bin.gz
 mv /tmp/blocklists/sony.bin /raid/data/module/transmission/system/etc/blocklists
 
-# Restart Transmission Daemon
+# Restart Transmission Daemon to reload blocklists
 killall -HUP transmission-daemon 
 
 # Cleanup
