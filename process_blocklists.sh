@@ -2,6 +2,7 @@
 #
 # Script to download my blacklists, process them, and reload my NAS's Transmission daemon.
 # Modify for your own environment. Based off blacklists available here http://www.iblocklist.com/lists.php 
+# 2012, Jackie Singh
 #
 
 mkdir /tmp/blocklists
